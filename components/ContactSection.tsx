@@ -15,7 +15,7 @@ export default function ContactSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
           >
             <span className="text-emerald-400 text-sm font-bold tracking-widest uppercase mb-4 block">
@@ -78,7 +78,7 @@ export default function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 shadow-2xl"
           >

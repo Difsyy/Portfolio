@@ -29,17 +29,20 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
+      // Force Home when at the top
+      if (window.scrollY < 100) {
+        setActiveSection("Home");
+        return;
+      }
+
       // Manual Scroll Spy
-      const scrollPosition = window.scrollY + window.innerHeight / 3; // Trigger when section enters top 1/3
+      const viewportMiddle = window.innerHeight / 2;
 
       for (const link of navLinks) {
         const section = document.querySelector(link.href) as HTMLElement;
         if (section) {
-          const { offsetTop, offsetHeight } = section;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
             setActiveSection(link.name);
           }
         }
@@ -59,8 +62,8 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
         isScrolled
-          ? "bg-main/80 backdrop-blur-md border-white/5 shadow-lg py-3 md:py-4"
-          : "bg-transparent py-4 md:py-8"
+          ? "bg-main/80 backdrop-blur-md border-white/5 shadow-lg py-2 md:py-4"
+          : "bg-transparent py-3 md:py-8"
       )}
     >
       {/* Scroll Progress Bar */}

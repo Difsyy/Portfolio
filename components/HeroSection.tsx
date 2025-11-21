@@ -24,12 +24,12 @@ export default function HeroSection() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-blaze animate-pulse" />
-            <span className="text-xs md:text-sm font-bold tracking-widest text-gray-200 uppercase">
+            <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-200 uppercase">
               Data & AI Engineer
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6 text-white">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-6 text-white">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blaze via-clay to-ember bg-size-[200%_auto] animate-gradient">
               Daifullah Noor Azmi
             </span>
@@ -80,7 +80,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-end"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
+          <div className="relative w-56 h-56 md:w-72 md:h-72">
             {/* Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blaze/20 to-emerald-400/20 rounded-full blur-[50px] animate-pulse" />
             <div className="absolute -inset-4 bg-gradient-to-bl from-emerald-400/10 to-blaze/10 rounded-full blur-[80px] animate-pulse delay-75" />

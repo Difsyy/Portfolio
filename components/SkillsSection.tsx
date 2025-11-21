@@ -28,7 +28,7 @@ export default function SkillsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
@@ -53,7 +53,7 @@ export default function SkillsSection() {
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-emerald-500/50 transition-colors duration-300 flex flex-col ${
                 idx === 2 ? "md:col-span-2" : ""

@@ -5,12 +5,12 @@ import { BarChart3, Database, Brain } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-32 relative">
+    <section id="about" className="py-40 relative">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5 }}
           className="mb-16 text-left"
         >
@@ -26,7 +26,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-6"
           >
@@ -67,7 +67,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="grid gap-6"
           >

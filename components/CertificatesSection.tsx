@@ -47,7 +47,7 @@ export default function CertificatesSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
@@ -68,7 +68,7 @@ export default function CertificatesSection() {
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative flex flex-col md:flex-row gap-8 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-400/30 transition-all duration-300 hover:bg-white/10 items-center md:items-start"
             >

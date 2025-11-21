@@ -17,7 +17,7 @@ export default function ProjectCard({ title, description, tags, index }: Project
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: false, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative flex flex-col h-full"
     >
