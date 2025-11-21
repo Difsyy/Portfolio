@@ -9,46 +9,46 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center pt-20 pb-12 relative overflow-hidden"
     >
       {/* Background Elements Overlay */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-ember/10 blur-[120px] rounded-full pointer-events-none z-0" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-clay/10 blur-[100px] rounded-full pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-blaze animate-pulse" />
-            <span className="text-sm md:text-base font-bold tracking-widest text-gray-200 uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-blaze animate-pulse" />
+            <span className="text-xs md:text-sm font-bold tracking-widest text-gray-200 uppercase">
               Data & AI Engineer
             </span>
           </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8 text-white">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6 text-white">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blaze via-clay to-ember bg-size-[200%_auto] animate-gradient">
               Daifullah Noor Azmi
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 font-light max-w-2xl mb-10 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-400 font-light max-w-xl mb-8 leading-relaxed">
             I'm an Informatics undergraduate at Telkom University focused on Data Engineering and AI/ML. I build end-to-end systems from data pipelines and machine learning models to modern web applications using Python, React, Next.js, Supabase, and BigQuery.
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 mb-12">
+          <div className="flex flex-wrap items-center gap-4 mb-10">
             <Link
               href="#projects"
-              className="px-8 py-4 bg-blaze text-main font-bold text-sm uppercase tracking-widest rounded-md hover:bg-emerald-400 transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(52,211,153,0.3)] flex items-center gap-2"
+              className="px-6 py-3 bg-blaze text-main font-bold text-xs uppercase tracking-widest rounded-md hover:bg-emerald-400 transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(52,211,153,0.3)] flex items-center gap-2"
             >
               View Projects <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="#contact"
-              className="px-8 py-4 bg-transparent text-white font-medium text-sm uppercase tracking-widest rounded-md border border-white/20 hover:border-blaze hover:bg-white/5 transition-all duration-300"
+              className="px-6 py-3 bg-transparent text-white font-medium text-xs uppercase tracking-widest rounded-md border border-white/20 hover:border-blaze hover:bg-white/5 transition-all duration-300"
             >
               Contact Me
             </Link>
@@ -80,7 +80,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-end"
         >
-          <div className="relative w-80 h-80 md:w-96 md:h-96">
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
             {/* Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blaze/20 to-emerald-400/20 rounded-full blur-[50px] animate-pulse" />
             <div className="absolute -inset-4 bg-gradient-to-bl from-emerald-400/10 to-blaze/10 rounded-full blur-[80px] animate-pulse delay-75" />

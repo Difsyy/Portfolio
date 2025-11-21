@@ -5,7 +5,7 @@ import { BarChart3, Database, Brain } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,7 +14,7 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-left"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blaze via-clay to-ember bg-size-[200%_auto] animate-gradient">
               About Me
             </span>

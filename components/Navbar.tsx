@@ -59,8 +59,8 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
         isScrolled
-          ? "bg-main/80 backdrop-blur-md border-white/5 shadow-lg py-3 md:py-5"
-          : "bg-transparent py-5 md:py-10"
+          ? "bg-main/80 backdrop-blur-md border-white/5 shadow-lg py-3 md:py-4"
+          : "bg-transparent py-4 md:py-8"
       )}
     >
       {/* Scroll Progress Bar */}
@@ -75,7 +75,7 @@ export default function Navbar() {
           href="#home"
           className="flex items-center gap-2 group"
         >
-          <svg viewBox="0 0 600 300" className="h-16 md:h-20 w-auto" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 600 300" className="h-10 md:h-14 w-auto" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="navbarLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#34d399" />
