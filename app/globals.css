@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main: #020617;
+  --color-ember: #0f394c;
+  --color-clay: #0ea5e9;
+  --color-blaze: #34d399;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --animate-gradient: gradient 3s linear infinite;
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-main text-gray-50;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-main/80 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+  
+  .glass-panel {
+    @apply bg-ember/30 backdrop-blur-sm border border-clay/30;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
