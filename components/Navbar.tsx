@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +16,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -58,8 +59,8 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
         isScrolled
-          ? "bg-main/80 backdrop-blur-md border-white/5 shadow-lg py-6"
-          : "bg-transparent py-12" // Increased padding for "bigger" look
+          ? "bg-main/80 backdrop-blur-md border-white/5 shadow-lg py-3 md:py-5"
+          : "bg-transparent py-5 md:py-10"
       )}
     >
       {/* Scroll Progress Bar */}
@@ -71,15 +72,61 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
         {/* Logo */}
         <Link
-          href="#"
-          className="text-4xl font-bold tracking-tight flex items-end gap-1 group"
+          href="#home"
+          className="flex items-center gap-2 group"
         >
-          <span className="text-white">DT</span>
-          <span className="w-3 h-3 rounded-full bg-blaze mb-2 group-hover:scale-125 transition-transform" />
+          <svg viewBox="0 0 600 300" className="h-16 md:h-20 w-auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="navbarLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#34d399" />
+                    <stop offset="50%" stopColor="#0ea5e9" />
+                    <stop offset="100%" stopColor="#34d399" />
+                </linearGradient>
+                
+                <filter id="navbarLogoGlow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <g transform="translate(300, 150)">
+                {/* Background Shape (Orbital Rings) */}
+                <ellipse cx="0" cy="0" rx="200" ry="90" 
+                         fill="none" stroke="url(#navbarLogoGradient)" strokeWidth="6" opacity="0.3" 
+                         transform="rotate(15)" />
+                
+                <ellipse cx="0" cy="0" rx="200" ry="90" 
+                         fill="none" stroke="url(#navbarLogoGradient)" strokeWidth="6" opacity="0.3" 
+                         transform="rotate(-15)" />
+
+                {/* Strand 1 */}
+                <path d="M -240 -60 Q -200 -60, -160 0 T -80 60 T 0 0 T 80 -60 T 160 0 T 240 60"
+                      fill="none" stroke="url(#navbarLogoGradient)" strokeWidth="24" strokeLinecap="round"
+                      filter="url(#navbarLogoGlow)" />
+                
+                {/* Strand 1 Highlight */}
+                <path d="M -240 -60 Q -200 -60, -160 0 T -80 60 T 0 0 T 80 -60 T 160 0 T 240 60"
+                      fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" opacity="0.2"
+                      transform="translate(0, -3)" />
+
+                {/* Strand 2 */}
+                <path d="M -240 60 Q -200 60, -160 0 T -80 -60 T 0 0 T 80 60 T 160 0 T 240 -60"
+                      fill="none" stroke="url(#navbarLogoGradient)" strokeWidth="24" strokeLinecap="round"
+                      filter="url(#navbarLogoGlow)" />
+
+                {/* Strand 2 Highlight */}
+                <path d="M -240 60 Q -200 60, -160 0 T -80 -60 T 0 0 T 80 60 T 160 0 T 240 -60"
+                      fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" opacity="0.2"
+                      transform="translate(0, -3)" />
+            </g>
+          </svg>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden xl:flex items-center gap-12">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -106,24 +153,76 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile Nav Toggle (Simple placeholder) */}
-        <button className="md:hidden text-gray-300 hover:text-blaze">
+        {/* Mobile Nav Toggle */}
+        <button
+          className="xl:hidden text-gray-300 hover:text-blaze z-50 relative"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           <span className="sr-only">Menu</span>
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          {isMobileMenuOpen ? (
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
         </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-40 bg-main/95 backdrop-blur-xl flex flex-col items-center justify-center xl:hidden"
+          >
+            <nav className="flex flex-col items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => {
+                    setActiveSection(link.name);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={cn(
+                    "text-2xl font-medium tracking-widest uppercase transition-colors duration-300",
+                    activeSection === link.name
+                      ? "text-blaze"
+                      : "text-gray-400 hover:text-white"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
